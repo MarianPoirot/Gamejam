@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0acp1y72xnim"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Opening.gd" id="1_jkh42"]
+
+[node name="Opening" type="CanvasLayer"]
+script = ExtResource("1_jkh42")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 752.0
+offset_top = 384.0
+offset_right = 844.0
+offset_bottom = 415.0
+text = "KEY_START"
+
+[node name="LanguageOptionButton" type="OptionButton" parent="."]
+offset_right = 100.0
+offset_bottom = 31.0
+expand_icon = true
+item_count = 3
+selected = 0
+allow_reselect = true
+popup/item_0/text = "KEY_EN"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_FR"
+popup/item_1/id = 1
+popup/item_2/text = "KEY_TL"
+popup/item_2/id = 2
+
+[node name="Title" type="Label" parent="."]
+offset_top = 225.0
+offset_right = 1600.0
+offset_bottom = 251.0
+text = "OMG Titre ?!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="item_selected" from="LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]

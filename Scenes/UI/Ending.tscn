@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cecse2dibg87g"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_hxryl"]
+
+[node name="Ending" type="CanvasLayer"]
+script = ExtResource("1_hxryl")

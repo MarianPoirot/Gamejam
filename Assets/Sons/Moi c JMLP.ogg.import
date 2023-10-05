@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bw6hjkydhs6gn"
+path="res://.godot/imported/Moi c JMLP.ogg-8bbb7eb8ad98a82fd4a81aa553885bb5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sons/Moi c JMLP.ogg"
+dest_files=["res://.godot/imported/Moi c JMLP.ogg-8bbb7eb8ad98a82fd4a81aa553885bb5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
