@@ -1,17 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://shcip7ewnjxv"]
+[gd_scene load_steps=9 format=3 uid="uid://shcip7ewnjxv"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_n3wik"]
 [ext_resource type="Texture2D" uid="uid://dgmkf1ii7htqe" path="res://Assets/Sprites/character.png" id="2_8k5uc"]
+[ext_resource type="Script" path="res://Scripts/Player/HitboxAttack1.gd" id="3_24445"]
+[ext_resource type="Script" path="res://Scripts/Player/HitboxAttack2.gd" id="4_wq2x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1py7o"]
-size = Vector2(15.5556, 37.7778)
+size = Vector2(16.6667, 38.8889)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vpn47"]
-radius = 8.88889
+radius = 6.66667
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyaoo"]
+radius = 3.33333
+height = 22.2222
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l1a55"]
+radius = 6.66667
 height = 40.0
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.9, 0.9)
 collision_layer = 17
 script = ExtResource("1_n3wik")
 
@@ -21,12 +30,12 @@ texture = ExtResource("2_8k5uc")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.11111, 0)
+position = Vector2(-1.66667, 0.555555)
 shape = SubResource("RectangleShape2D_1py7o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -100)
-zoom = Vector2(2, 2)
+position = Vector2(0, -65.5556)
+zoom = Vector2(3, 3)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8
@@ -35,5 +44,29 @@ monitorable = false
 [node name="CollisionHurtbox" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-1.11111, 0)
 shape = SubResource("CapsuleShape2D_vpn47")
+debug_color = Color(0, 0.65098, 0.0901961, 0.419608)
+
+[node name="HitboxAttack1" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+monitoring = false
+script = ExtResource("3_24445")
+
+[node name="CollisionHitboxAttack1" type="CollisionShape2D" parent="HitboxAttack1"]
+position = Vector2(16.6667, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eyaoo")
+debug_color = Color(0.882353, 0.337255, 0, 0.419608)
+
+[node name="HitboxAttack2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+monitoring = false
+script = ExtResource("4_wq2x2")
+
+[node name="CollisionHitboxAttack2" type="CollisionShape2D" parent="HitboxAttack2"]
+position = Vector2(13.3333, 0)
+shape = SubResource("CapsuleShape2D_l1a55")
+debug_color = Color(0.996078, 0, 0.227451, 0.419608)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

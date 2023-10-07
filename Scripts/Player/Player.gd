@@ -15,6 +15,7 @@ var gravity : float
 var speed : float
 var jump : float = 0
 var health = 1000
+var direction
 
 var SPEED_RATE :float = 1000
 
@@ -27,6 +28,7 @@ var isJumping : bool = false
 func _ready():
 	LastOnGround = 0
 	speed = 0
+	direction = 'right'
 
 func _process(delta):
 	var input =  Input.get_axis("Move_Left", "Move_Right")
@@ -57,13 +59,22 @@ func _process(delta):
 	if Input.is_action_just_pressed("Jump") && is_on_floor():
 		LastOnGround = 0
 		isJumping = true;
+	
 	AddGravity()
+	velocity *= delta * SPEED_RATE
+	move_and_slide()
 	
 	if velocity.y > 0:
 		canJumpCut = false
 		
-	velocity *= delta * SPEED_RATE
-	move_and_slide()
+	if velocity.x>0:
+		if direction=="left":
+			scale.x*=-1
+			direction="right"
+	elif velocity.x<0:
+		if direction=="right":
+			scale.x*=-1
+			direction="left"
 
 func AddGravity():
 	if is_on_floor():

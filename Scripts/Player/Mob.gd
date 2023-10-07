@@ -13,11 +13,12 @@ var speed : float = 0
 
 var health = base_health
 var target
-var direction = Vector2.ZERO
+var direction_target = Vector2.ZERO
+var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	direction = 'left'
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,15 +29,26 @@ func _process(delta):
 	var sb = StyleBoxFlat.new()
 	$MobBar.add_theme_stylebox_override("fill", sb)
 	sb.bg_color = Color(r, g, 0)
+	
 	AddGravity()
+	
 	if target:
-		direction = global_position.direction_to(target.position)
+		direction_target = global_position.direction_to(target.position)
 		speed += speed_acc
 		speed = min(speed, max_speed)
-		velocity.x += direction.x * speed * delta
+		velocity.x += direction_target.x * speed * delta
 	else:
 		velocity.x = 0
 		speed = 0
+		
+	if velocity.x>0:
+		if direction=="left":
+			scale.x*=-1
+			direction="right"
+	elif velocity.x<0:
+		if direction=="right":
+			scale.x*=-1
+			direction="left"
 	move_and_slide()
 
 func AddGravity():
