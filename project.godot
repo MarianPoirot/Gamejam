@@ -21,6 +21,10 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/stretch/mode="canvas_items"
 
+[editor]
+
+run/main_run_args="--rendering-driver opengl3"
+
 [input]
 
 start={
@@ -33,3 +37,7 @@ start={
 
 locale/translations=PackedStringArray("res://Translations/Translation.en.translation", "res://Translations/Translation.fr.translation", "res://Translations/Translation.tl.translation")
 locale/test="en"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
