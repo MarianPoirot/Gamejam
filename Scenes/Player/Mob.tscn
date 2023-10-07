@@ -80,5 +80,6 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ckmpu")
 debug_color = Color(0.811765, 0.00392157, 0.980392, 0.419608)
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
