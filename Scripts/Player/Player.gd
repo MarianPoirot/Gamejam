@@ -25,13 +25,14 @@ var canJumpCut : bool = true
 var canJump : bool = true
 var isJumping : bool = false
 
-var attack
+var attack : bool
 
 func _ready():
 	LastOnGround = 0
 	speed = 0
 	direction = 'right'
-	attack='false'
+	attack=false
+	$AnimatedSprite2D.play("idle")
 	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
 
@@ -65,6 +66,11 @@ func _process(delta):
 		LastOnGround = 0
 		isJumping = true;
 	
+	if Input.is_action_just_pressed("attack1") && not attack:
+		self.attack1()
+	elif Input.is_action_just_pressed("attack2") && not attack:
+		self.attack2()
+		
 	AddGravity()
 	velocity *= delta * SPEED_RATE
 	move_and_slide()
@@ -118,8 +124,18 @@ func _on_hurtbox_area_entered(hitbox_area):
 	deal_damage(hitbox_area.damage)
 	knockback(hitbox_area.global_position,20)
 
-func _on_AnimatedSprite_animation_finished():
+func _on_animated_sprite_2d_animation_finished():
 	attack=false
 	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
-	$AnimatedSprite.animation = "idle"
+	$AnimatedSprite2D.play("idle")
+
+func attack1():
+	attack=true
+	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",false)
+	$AnimatedSprite2D.play("attack1")
+	
+func attack2():
+	attack=true
+	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",false)
+	$AnimatedSprite2D.play("attack2")
