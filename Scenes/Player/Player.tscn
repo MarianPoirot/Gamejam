@@ -104,9 +104,7 @@ script = ExtResource("1_n3wik")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pbpxv")
-animation = &"move"
-frame = 5
-frame_progress = 0.636221
+animation = &"idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

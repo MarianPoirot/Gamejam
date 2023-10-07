@@ -19,6 +19,7 @@ var direction
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	direction = 'left'
+	$AnimatedSprite2D.play("idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,9 +62,11 @@ func AddGravity():
 	
 func _on_detection_area_body_entered(body):
 	target = body
+	$AnimatedSprite2D.play("walk")
 
 func _on_detection_area_body_exited(_body):
 	target = null
+	$AnimatedSprite2D.play("idle")
 
 func deal_damage(damage):
 	health -= damage

@@ -32,6 +32,8 @@ func _ready():
 	speed = 0
 	direction = 'right'
 	attack='false'
+	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
+	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
 
 func _process(delta):
 	var input =  Input.get_axis("Move_Left", "Move_Right")
@@ -78,6 +80,12 @@ func _process(delta):
 		if direction=="right":
 			scale.x*=-1
 			direction="left"
+		
+	if not attack:
+		if velocity.x!=0:
+			$AnimatedSprite2D.play("move")
+		else:
+			$AnimatedSprite2D.play("idle")
 
 func AddGravity():
 	if is_on_floor():
