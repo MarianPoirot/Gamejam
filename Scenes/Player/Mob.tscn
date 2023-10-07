@@ -30,7 +30,7 @@ height = 96.0
 radius = 37.2156
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckmpu"]
-size = Vector2(768, 184)
+size = Vector2(1248, 96)
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 8
@@ -76,7 +76,7 @@ show_percentage = false
 collision_layer = 0
 
 [node name="CollisionDetection" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, -36)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ckmpu")
 debug_color = Color(0.811765, 0.00392157, 0.980392, 0.419608)
 
