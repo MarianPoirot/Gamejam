@@ -1,6 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://cecse2dibg87g"]
+[gd_scene load_steps=4 format=3 uid="uid://cecse2dibg87g"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_hxryl"]
+[ext_resource type="FontFile" uid="uid://bmwimpog4uwfm" path="res://Assets/Fonts/HopeGold.ttf" id="2_0k5a2"]
+[ext_resource type="AudioStream" uid="uid://bw6hjkydhs6gn" path="res://Assets/Sons/Moi c JMLP.ogg" id="3_236ow"]
 
 [node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_hxryl")
+
+[node name="GameOver" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.5
+offset_top = -285.0
+offset_right = 381.5
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.93875)
+theme_override_fonts/font = ExtResource("2_0k5a2")
+theme_override_font_sizes/font_size = 192
+text = "GAME_OVER"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = 67.0
+offset_right = 317.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0k5a2")
+theme_override_font_sizes/font_size = 96
+text = "KEY_RESTART"
+
+[node name="Quit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -317.0
+offset_top = 204.0
+offset_right = 317.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0k5a2")
+theme_override_font_sizes/font_size = 92
+text = "KEY_QUIT"
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = -67.5
+offset_right = 121.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0k5a2")
+theme_override_font_sizes/font_size = 96
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="EndAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_236ow")
+autoplay = true
+
+[connection signal="button_down" from="Restart" to="." method="_on_restart_button_down"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_button_down"]
