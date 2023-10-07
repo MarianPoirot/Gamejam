@@ -1,6 +1,7 @@
-,en,fr,tl
-KEY_LANG,Language,Langue,Wika
-KEY_START,Start,Commencer,Magsimula
-KEY_FR,French,Francais,Pranses
-KEY_EN,English,Anglais,Ingles
-KEY_TL,Tagalog,Tagalog,Tagalog
+,en,fr,tl,khw
+KEY_LANG,Language,Langue,Wika,Aglâb 
+KEY_START,Start,Commencer,Magsimula,Agnun
+KEY_FR,French,Francais,Pranses,?
+KEY_EN,English,Anglais,Ingles,?
+KEY_TL,Tagalog,Tagalog,Tagalog,?
+KEY_KHW,Khuzdul,Khuzdul,Khuzdul,Khuzdul

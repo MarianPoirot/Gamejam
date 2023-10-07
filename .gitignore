@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-Translation/*.translation
+Translations/*.*.translation
+*.import

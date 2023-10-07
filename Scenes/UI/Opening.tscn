@@ -18,7 +18,7 @@ text = "KEY_START"
 offset_right = 100.0
 offset_bottom = 31.0
 expand_icon = true
-item_count = 3
+item_count = 4
 selected = 0
 allow_reselect = true
 popup/item_0/text = "KEY_EN"
@@ -27,6 +27,8 @@ popup/item_1/text = "KEY_FR"
 popup/item_1/id = 1
 popup/item_2/text = "KEY_TL"
 popup/item_2/id = 2
+popup/item_3/text = "KEY_KHW"
+popup/item_3/id = 3
 
 [node name="Title" type="Label" parent="."]
 offset_top = 225.0

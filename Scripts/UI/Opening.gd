@@ -26,3 +26,5 @@ func _on_language_option_button_item_selected(index):
 				TranslationServer.set_locale("fr")
 			2:
 				TranslationServer.set_locale("tl")
+			3:
+				TranslationServer.set_locale("khw")

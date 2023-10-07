@@ -35,7 +35,7 @@ start={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://Translations/Translation.en.translation", "res://Translations/Translation.fr.translation", "res://Translations/Translation.tl.translation")
+locale/translations=PackedStringArray("res://Translations/Translation.en.translation", "res://Translations/Translation.fr.translation", "res://Translations/Translation.tl.translation", "res://Translations/Translation.khw.translation")
 locale/test="en"
 
 [rendering]
