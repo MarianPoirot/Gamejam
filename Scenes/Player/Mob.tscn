@@ -44,9 +44,9 @@ shape = SubResource("RectangleShape2D_2kubu")
 debug_color = Color(0.996078, 0, 0.196078, 0.419608)
 
 [node name="MobBar" type="ProgressBar" parent="."]
-offset_left = -48.0
-offset_top = -96.0
-offset_right = 56.0
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 48.0
 offset_bottom = -69.0
 max_value = 1000.0
 step = 1.0
