@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 signal is_dead
-signal is_hurt
 
 @export var base_health = 1000
 @export var speed_acc : float = 3
@@ -51,7 +50,7 @@ func AddGravity():
 func _on_detection_area_body_entered(body):
 	target = body
 
-func _on_detection_area_body_exited(body):
+func _on_detection_area_body_exited(_body):
 	target = null
 
 func deal_damage(damage):
@@ -68,6 +67,4 @@ func knockback(direction2, power):
 
 func _on_hurtbox_area_entered(hitbox_area):
 	deal_damage(hitbox_area.damage)
-	emit_signal("is_hurt")
-	print(hitbox_area.damage)
 	knockback(hitbox_area.global_position,20)

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal is_dead
+
 @export var speed_acc : float = 3
 @export var max_speed : float = 30
 @export var gravity_acc : float = 15
@@ -12,6 +14,7 @@ class_name Player
 var gravity : float
 var speed : float
 var jump : float = 0
+var health = 1000
 
 var SPEED_RATE :float = 1000
 
@@ -62,9 +65,6 @@ func _process(delta):
 	velocity *= delta * SPEED_RATE
 	move_and_slide()
 
-func _physics_process(delta):
-	pass
-
 func AddGravity():
 	if is_on_floor():
 		gravity = 0
@@ -79,3 +79,19 @@ func Jump() -> Vector2:
 	else:
 		jump = max_jump
 	return Vector2.UP * jump
+
+func deal_damage(damage):
+	health -= damage
+	if health<=0:
+		die()
+		
+func die():
+	queue_free()
+	emit_signal("is_dead")
+
+func knockback(direction2, power):
+	global_position.x += direction2.direction_to(self.global_position).x * power
+
+func _on_hurtbox_area_entered(hitbox_area):
+	deal_damage(hitbox_area.damage)
+	knockback(hitbox_area.global_position,20)

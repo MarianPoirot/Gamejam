@@ -7,9 +7,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func on_death():
+func _on_player_is_dead():
 	if get_tree().change_scene_to_file("res://Scenes/UI/Ending.tscn") != OK:
 		print ("Error passing from Main scene to Ending scene")
