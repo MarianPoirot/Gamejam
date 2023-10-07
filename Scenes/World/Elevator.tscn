@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cf6jgeinynxho" path="res://icon.svg" id="2_7hnxd"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(64, 64)
+size = Vector2(126, 127)
 
 [node name="NodeElevator" type="Node2D"]
 script = ExtResource("1")
@@ -15,6 +15,7 @@ script = ExtResource("1")
 texture = ExtResource("2_7hnxd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicElevator"]
+position = Vector2(0, -0.5)
 shape = SubResource("1")
 
 [node name="Color" type="ColorRect" parent="KinematicElevator"]

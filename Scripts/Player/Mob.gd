@@ -1,7 +1,10 @@
 extends Node
 
 @export var base_health = 1000
+@export var speed = 10
 var health = base_health
+var attack=false
+var direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,3 +19,11 @@ func _process(delta):
 	var sb = StyleBoxFlat.new()
 	$MobBar.add_theme_stylebox_override("fill", sb)
 	sb.bg_color = Color(r, g, 0)
+
+func _on_detection_area_body_entered(body):
+	attack=true
+	direction = $MobBar.position.direction_to(body.position)
+	$MobBar.move_and_slide(direction*speed)
+
+func _on_detection_area_body_exited(body):
+	attack=false
