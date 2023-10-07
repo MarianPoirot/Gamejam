@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=5 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
-[ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
+[ext_resource type="PackedScene" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
+[ext_resource type="PackedScene" uid="uid://b6o25k8v7mmne" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
+[ext_resource type="PackedScene" uid="uid://dde03f2qbltgu" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
 
 [node name="Mob" parent="." instance=ExtResource("2_aiuup")]
 position = Vector2(1152, 776)
+base_health = null
+speed = null
+
+[node name="Player" parent="." instance=ExtResource("3_7uux0")]
+position = Vector2(623, 353)
+
+[node name="Map" parent="." instance=ExtResource("4_2rc7t")]
+position = Vector2(715, 660)

@@ -35,7 +35,6 @@ func _process(delta):
 	else:
 		speed = 0
 	velocity = movement * speed
-	print(isJumping)
 	if Input.is_action_pressed("Jump") && (canJump or isJumping):
 		velocity += Jump()
 	
