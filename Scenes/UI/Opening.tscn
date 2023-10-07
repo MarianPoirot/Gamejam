@@ -38,4 +38,5 @@ text = "OMG Titre ?!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="item_selected" from="LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
