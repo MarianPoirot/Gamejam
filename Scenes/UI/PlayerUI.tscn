@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://or6qjpp6mu2i"]
+
+[ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="1_7e105"]
+[ext_resource type="Theme" uid="uid://ew05i4ygw3dw" path="res://Themes/BarTheme.tres" id="1_s6q33"]
+[ext_resource type="Texture2D" uid="uid://bsowhgl7f4j60" path="res://Assets/UI/RustyBar.jpg" id="2_lmyf3"]
+
+[sub_resource type="GDScript" id="GDScript_ulmep"]
+script/source = "extends ProgressBar
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+"
+
+[node name="PlayerUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7e105")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 794.0
+offset_right = 1583.0
+offset_bottom = 878.0
+texture = ExtResource("2_lmyf3")
+
+[node name="RustyBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 817.0
+offset_right = 1560.0
+offset_bottom = 856.0
+theme = ExtResource("1_s6q33")
+show_percentage = false
+script = SubResource("GDScript_ulmep")
