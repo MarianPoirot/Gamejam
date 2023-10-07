@@ -43,6 +43,14 @@ quit={
 locale/translations=PackedStringArray("res://Translations/Translation.en.translation", "res://Translations/Translation.fr.translation", "res://Translations/Translation.tl.translation", "res://Translations/Translation.khw.translation")
 locale/test="en"
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Sword"
+2d_physics/layer_3="Gun"
+2d_physics/layer_4="Mob"
+2d_physics/layer_5="Ground"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

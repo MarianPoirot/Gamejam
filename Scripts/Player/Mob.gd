@@ -2,6 +2,7 @@ extends Node
 
 @export var base_health = 1000
 var health = base_health
+var attack=false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,3 +17,9 @@ func _process(delta):
 	var sb = StyleBoxFlat.new()
 	$MobBar.add_theme_stylebox_override("fill", sb)
 	sb.bg_color = Color(r, g, 0)
+
+func _on_area_2d_area_entered(area):
+	attack=true
+
+func _on_area_2d_area_exited(area):
+	attack=false
