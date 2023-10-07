@@ -8,14 +8,15 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
 
-[node name="Mob" parent="." instance=ExtResource("2_aiuup")]
-position = Vector2(1155, 571)
-scale = Vector2(0.6, 0.6)
-
-[node name="Player" parent="." instance=ExtResource("3_7uux0")]
-position = Vector2(623, 352)
-
 [node name="Map" parent="." instance=ExtResource("4_2rc7t")]
 position = Vector2(715, 660)
+scale = Vector2(1, 1)
 
+[node name="Mob" parent="." instance=ExtResource("2_aiuup")]
+position = Vector2(1154, 618)
+
+[node name="Player" parent="." instance=ExtResource("3_7uux0")]
+position = Vector2(715, 638)
+
+[connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
 [connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]

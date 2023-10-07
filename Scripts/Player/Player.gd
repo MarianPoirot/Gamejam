@@ -25,10 +25,13 @@ var canJumpCut : bool = true
 var canJump : bool = true
 var isJumping : bool = false
 
+var attack
+
 func _ready():
 	LastOnGround = 0
 	speed = 0
 	direction = 'right'
+	attack='false'
 
 func _process(delta):
 	var input =  Input.get_axis("Move_Left", "Move_Right")
@@ -106,3 +109,9 @@ func knockback(direction2, power):
 func _on_hurtbox_area_entered(hitbox_area):
 	deal_damage(hitbox_area.damage)
 	knockback(hitbox_area.global_position,20)
+
+func _on_AnimatedSprite_animation_finished():
+	attack=false
+	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
+	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
+	$AnimatedSprite.animation = "idle"
