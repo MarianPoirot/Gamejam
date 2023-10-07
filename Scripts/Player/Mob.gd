@@ -23,7 +23,7 @@ func _process(delta):
 func _on_detection_area_body_entered(body):
 	attack=true
 	direction = $MobBar.position.direction_to(body.position)
-	$MobBar.move_and_slide(direction*speed)
+ 	$MobBar.move_and_slide(direction*speed)
 
 func _on_detection_area_body_exited(body):
 	attack=false

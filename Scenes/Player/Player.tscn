@@ -8,6 +8,7 @@ size = Vector2(18, 40)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.9, 0.9)
+collision_layer = 17
 script = ExtResource("1_n3wik")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,4 +21,5 @@ position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_1py7o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -100)
 zoom = Vector2(2, 2)
