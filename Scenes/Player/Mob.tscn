@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7awc2t6y5lh8"]
+[gd_scene load_steps=8 format=3 uid="uid://b7awc2t6y5lh8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Mob.gd" id="1_174si"]
 [ext_resource type="Texture2D" uid="uid://vxwkqyffoqok" path="res://Assets/Sprites/robot.png" id="2_xn76b"]
-[ext_resource type="Script" path="res://Scripts/UI/MobHealth.gd" id="2_ypcng"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d1ac5"]
 animations = [{
@@ -72,10 +71,8 @@ offset_bottom = -51.0
 max_value = 1000.0
 step = 1.0
 show_percentage = false
-script = ExtResource("2_ypcng")
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionDetection" type="CollisionShape2D" parent="DetectionArea"]

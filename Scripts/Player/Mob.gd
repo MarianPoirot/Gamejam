@@ -1,7 +1,14 @@
-extends Node
+extends CharacterBody2D
 
 @export var base_health = 1000
-@export var speed = 10
+@export var speed_acc : float = 2
+@export var max_speed : float = 25
+@export var gravity_acc : float = 15
+@export var max_gravity : float = 50
+
+var gravity : float
+var speed : float = 0
+
 var health = base_health
 var attack=false
 var direction = Vector2.ZERO
@@ -19,11 +26,22 @@ func _process(delta):
 	var sb = StyleBoxFlat.new()
 	$MobBar.add_theme_stylebox_override("fill", sb)
 	sb.bg_color = Color(r, g, 0)
+	AddGravity()
+	move_and_slide()
 
+func AddGravity():
+	if is_on_floor():
+		gravity = 0
+	else:
+		gravity += gravity_acc
+		gravity = min(gravity, max_gravity)
+	velocity += gravity * Vector2.DOWN
+	
 func _on_detection_area_body_entered(body):
 	attack=true
-	direction = $MobBar.position.direction_to(body.position)
-	$MobBar.move_and_slide(direction*speed)
+	direction = self.position.direction_to(body.position)
+	print(direction)
+	velocity += direction * speed
 
 func _on_detection_area_body_exited(body):
 	attack=false
