@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
 [ext_resource type="PackedScene" uid="uid://shcip7ewnjxv" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
-[ext_resource type="PackedScene" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
+[ext_resource type="PackedScene" uid="uid://dde03f2qbltgu" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
@@ -13,7 +13,7 @@ position = Vector2(715, 660)
 scale = Vector2(1, 1)
 
 [node name="Mob" parent="." instance=ExtResource("2_aiuup")]
-position = Vector2(1154, 618)
+position = Vector2(937, 648)
 
 [node name="Player" parent="." instance=ExtResource("3_7uux0")]
 position = Vector2(715, 638)
