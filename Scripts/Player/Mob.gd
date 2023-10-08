@@ -34,7 +34,7 @@ func _process(delta):
 	AddGravity()
 	
 	if target:
-		if(abs(target.position.x-self.global_position.x)<30):
+		if(abs(target.position.x-self.global_position.x)<50):
 			$AnimatedSprite2D.play('attack')
 		else:
 			$AnimatedSprite2D.play('walk')

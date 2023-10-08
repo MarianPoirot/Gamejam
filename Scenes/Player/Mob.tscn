@@ -30,7 +30,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 4.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -76,7 +76,8 @@ script = ExtResource("1_174si")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d1ac5")
 animation = &"attack"
-frame_progress = 0.174894
+frame = 4
+frame_progress = 0.400916
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
