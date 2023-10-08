@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="RuZZtyPeachRobots"
+config/description="Les humains ont créés des robots dans ce monde Steampunk. Malheureusement, après les avoir abandonnés pendant des années, une étrange rouille a recouvet la ville et corrumpu les robots. Un androide est envoyé pour essayer de s'en débarasser."
 run/main_scene="res://Scenes/UI/Opening.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Sprites/icon.png"
 
 [display]
 
