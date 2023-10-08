@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=9 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
-[ext_resource type="PackedScene" uid="uid://b6o25k8v7mmne" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
-[ext_resource type="PackedScene" uid="uid://bcivwh5chcaf8" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
-[ext_resource type="PackedScene" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
+[ext_resource type="PackedScene" uid="uid://shcip7ewnjxv" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
+[ext_resource type="PackedScene" uid="uid://dde03f2qbltgu" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
+[ext_resource type="PackedScene" uid="uid://bhd7neuh8sa0" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
 [ext_resource type="Script" path="res://Scripts/World/Teleport.gd" id="5_47w3s"]
+[ext_resource type="AudioStream" uid="uid://d3thfg3r3w2xy" path="res://Assets/Sons/Robo theme.ogg" id="7_0iy6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ymc"]
 size = Vector2(20, 24)
@@ -50,6 +51,10 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_t3ymc")
 
 [node name="Gun" parent="." instance=ExtResource("5_3j80q")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0iy6a")
+volume_db = 3.0
 
 [connection signal="gun" from="Player" to="Gun" method="_on_player_gun"]
 [connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]
