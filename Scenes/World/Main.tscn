@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://b6o25k8v7mmne" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
 [ext_resource type="PackedScene" uid="uid://bcivwh5chcaf8" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
 [ext_resource type="Script" path="res://Scripts/World/Teleport.gd" id="5_47w3s"]
+[ext_resource type="PackedScene" uid="uid://bhd7neuh8sa0" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc6uu"]
 size = Vector2(16.25, 18.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ymc"]
+
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
@@ -48,7 +50,12 @@ destination = NodePath("../ZoneBasse")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneHaute"]
 shape = SubResource("RectangleShape2D_t3ymc")
 
+[node name="Gun" parent="." instance=ExtResource("5_3j80q")]
+
 [connection signal="body_entered" from="ZoneBasse" to="ZoneBasse" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneBasse" to="ZoneBasse" method="_on_body_exited"]
 [connection signal="body_entered" from="ZoneHaute" to="ZoneHaute" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneHaute" to="ZoneHaute" method="_on_body_exited"]
+[connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
+[connection signal="gun" from="Player" to="Gun" method="_on_player_gun"]
+[connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]

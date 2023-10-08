@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhd7neuh8sa0"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Gun.gd" id="1_pmkl3"]
+[ext_resource type="Texture2D" uid="uid://qbr1f67ooo76" path="res://Assets/Sprites/Character/gun_lightning0000.png" id="2_4d7q6"]
+[ext_resource type="Texture2D" uid="uid://crv3q1yn1526q" path="res://Assets/Sprites/Character/gun_lightning0001.png" id="3_51c0c"]
+[ext_resource type="Texture2D" uid="uid://b88ljtckuxvjo" path="res://Assets/Sprites/Character/gun_lightning0002.png" id="4_h13tx"]
+[ext_resource type="Texture2D" uid="uid://wd5isowqyhjv" path="res://Assets/Sprites/Character/gun_lightning0003.png" id="5_tu0sw"]
+[ext_resource type="Texture2D" uid="uid://cqgkfia1jddak" path="res://Assets/Sprites/Character/gun_lightning0004.png" id="6_jlgdw"]
+[ext_resource type="Texture2D" uid="uid://b6obo6tesc1ry" path="res://Assets/Sprites/Character/gun_lightning0005.png" id="7_je1sk"]
+[ext_resource type="Texture2D" uid="uid://b0koo5wl04ykm" path="res://Assets/Sprites/Character/gun_lightning0006.png" id="8_4nhwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yays"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4d7q6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_51c0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h13tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tu0sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jlgdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_je1sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4nhwf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esvuj"]
+size = Vector2(40, 13)
+
+[node name="Gun" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+monitoring = false
+script = ExtResource("1_pmkl3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3yays")
+animation = &"blank"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_esvuj")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

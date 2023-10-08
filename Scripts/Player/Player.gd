@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 signal is_dead
+signal gun(Player)
 
 @export var speed_acc : float = 3
 @export var max_speed : float = 30
@@ -150,4 +151,5 @@ func attack2():
 func attackGun():
 	attack=true
 	health-=20
+	emit_signal("gun",self)
 	$AnimatedSprite2D.play("gun")
