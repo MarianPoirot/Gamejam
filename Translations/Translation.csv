@@ -9,3 +9,5 @@ KEY_RESTART,Restart,Recommencer,Magsimula ulit,Abaggili
 KEY_QUIT,Quit,Quitter,Labasan,Ai-saruj 
 GAME_OVER,Game Over !,Fin de la partie !,Laro sa paglipas,Jalamanati
 KEY_EXIT,Exit,Quitter,Labasan,Ai-saruj
+KEY_LOOSE,You did not survive to rust,Vous n'avez pas survecu a la rouille,Hindi ka nakaligtas kalawang,Asti amradi ai-bagal
+KEY_SPEECH,You are an android sent to control abandoned robots.,Vous etes un android envoye controller des robots abandonnes.,Ikaw ay isang android na ipinadala upang makontrol inabandunang mga robot.,Asti ad ? mahamnani birakenera ?? Akhlibi.

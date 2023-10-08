@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_hxryl"]
 [ext_resource type="FontFile" uid="uid://bmwimpog4uwfm" path="res://Assets/Fonts/HopeGold.ttf" id="2_0k5a2"]
-[ext_resource type="Texture2D" uid="uid://bq23qt60of6xn" path="res://Assets/Sprites/ending_improved.png" id="3_01snh"]
-[ext_resource type="AudioStream" uid="uid://bw6hjkydhs6gn" path="res://Assets/Sons/Moi c JMLP.ogg" id="3_236ow"]
+[ext_resource type="Texture2D" uid="uid://b6hlabgnbd8cm" path="res://Assets/Sprites/ending_improved.png" id="3_01snh"]
+[ext_resource type="AudioStream" uid="uid://dvqtmsuv3cp8x" path="res://Assets/Sons/cry.ogg" id="4_ogsu1"]
 
 [node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_hxryl")
@@ -28,8 +28,7 @@ grow_vertical = 2
 scale = Vector2(1, 0.93875)
 theme_override_fonts/font = ExtResource("2_0k5a2")
 theme_override_font_sizes/font_size = 128
-text = "Vous n'avez pas survécu
-à la rouille ..."
+text = "KEY_LOOSE"
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="."]
@@ -85,8 +84,7 @@ text = "Score: 0"
 horizontal_alignment = 1
 
 [node name="EndAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_236ow")
-autoplay = true
+stream = ExtResource("4_ogsu1")
 
 [connection signal="button_down" from="Restart" to="." method="_on_restart_button_down"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_button_down"]

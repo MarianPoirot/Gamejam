@@ -2,6 +2,7 @@ extends Node
 
 func _ready():
 	update_score(Variables.score)
+	$EndAudio.play()
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("start"):
@@ -13,6 +14,7 @@ func update_score(score):
 	$Score.text = "Score: " + str(score)
 
 func _on_restart_button_down():
+	$EndAudio.stop()
 	if get_tree().change_scene_to_file("res://Scenes/World/Main.tscn") != OK:
 		print ("Error passing from Opening scene to main scene")
 

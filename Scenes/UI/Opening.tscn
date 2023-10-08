@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/Opening.gd" id="1_jkh42"]
 [ext_resource type="FontFile" uid="uid://bmwimpog4uwfm" path="res://Assets/Fonts/HopeGold.ttf" id="2_dkysx"]
-[ext_resource type="Texture2D" uid="uid://do6w50ipx0vfu" path="res://Assets/Sprites/opening_improved.png" id="2_xn86g"]
+[ext_resource type="Texture2D" uid="uid://nieqrg151fax" path="res://Assets/Sprites/opening_improved.png" id="2_xn86g"]
 [ext_resource type="AudioStream" uid="uid://bw6hjkydhs6gn" path="res://Assets/Sons/Moi c JMLP.ogg" id="3_36d5h"]
 
 [sub_resource type="Theme" id="Theme_1bexf"]
@@ -81,8 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_dkysx")
 theme_override_font_sizes/font_size = 64
-text = "Vous êtes un android envoyé contrôler
-des robots abandonnés."
+text = "KEY_SPEECH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
