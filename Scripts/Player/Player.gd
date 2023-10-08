@@ -27,12 +27,14 @@ var canJump : bool = true
 var isJumping : bool = false
 
 var attack : bool
+var gun_attack : bool
 
 func _ready():
 	LastOnGround = 0
 	speed = 0
 	direction = 'right'
 	attack=false
+	gun_attack=false
 	$AnimatedSprite2D.play("idle")
 	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
@@ -41,14 +43,14 @@ func _process(delta):
 	$Camera2D/PlayerUI.updateRustyBar(1000-health)
 	var input =  Input.get_axis("Move_Left", "Move_Right")
 	var movement = input * Vector2.RIGHT
-	if input != 0 :
+	if input != 0 && not gun_attack:
 		movement = movement.normalized()
 		speed += speed_acc
 		speed = min(speed, max_speed)
 	else:
 		speed = 0
 	velocity = movement * speed
-	if Input.is_action_pressed("Jump") && (canJump or isJumping):
+	if Input.is_action_pressed("Jump") && (canJump or isJumping) && not gun_attack:
 		velocity += Jump()
 	
 	if is_on_floor():
@@ -60,11 +62,11 @@ func _process(delta):
 		LastOnGround += delta
 	
 	
-	if Input.is_action_just_released("Jump") && canJumpCut:
+	if Input.is_action_just_released("Jump") && canJumpCut && not gun_attack:
 		canJumpCut = false
 		LastOnGround = maxAirTime
 		
-	if Input.is_action_just_pressed("Jump") && is_on_floor():
+	if Input.is_action_just_pressed("Jump") && is_on_floor() && not gun_attack:
 		LastOnGround = 0
 		isJumping = true;
 	
@@ -98,6 +100,9 @@ func _process(delta):
 			$AnimatedSprite2D.play("move")
 		else:
 			$AnimatedSprite2D.play("idle")
+			
+	if gun_attack && $AnimatedSprite2D.get_frame()==2:
+		emit_signal("gun",self)
 
 func AddGravity():
 	#if is_on_floor():
@@ -133,6 +138,7 @@ func _on_hurtbox_area_entered(hitbox_area):
 
 func _on_animated_sprite_2d_animation_finished():
 	attack=false
+	gun_attack=false
 	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",true)
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
 	$AnimatedSprite2D.play("idle")
@@ -151,6 +157,6 @@ func attack2():
 
 func attackGun():
 	attack=true
+	gun_attack=true
 	health-=20
-	emit_signal("gun",self)
 	$AnimatedSprite2D.play("gun")
