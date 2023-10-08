@@ -1,7 +1,7 @@
 extends Control
 
 var _rustyBar;
-@export var health = 0;
+@export var health = 1000;
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("quit"):

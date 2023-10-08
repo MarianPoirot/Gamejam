@@ -138,6 +138,12 @@ shape = SubResource("RectangleShape2D_1py7o")
 position = Vector2(0, -39)
 zoom = Vector2(5, 5)
 
+[node name="PlayerUI" parent="Camera2D" instance=ExtResource("23_nbetr")]
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -160.0
+offset_bottom = -90.0
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 monitorable = false
@@ -168,8 +174,6 @@ script = ExtResource("4_wq2x2")
 position = Vector2(5, 0)
 shape = SubResource("CapsuleShape2D_l1a55")
 debug_color = Color(0.996078, 0, 0.227451, 0.419608)
-
-[node name="PlayerUI" parent="." instance=ExtResource("23_nbetr")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
