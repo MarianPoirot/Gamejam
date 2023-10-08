@@ -53,7 +53,7 @@ func _process(delta):
 	
 	if is_on_floor():
 		canJump = Input.is_action_just_pressed("Jump")
-		jump = 200
+		jump = 100
 		gravity = 0
 		canJumpCut = true
 	else:
@@ -100,11 +100,11 @@ func _process(delta):
 			$AnimatedSprite2D.play("idle")
 
 func AddGravity():
-	if is_on_floor():
-		gravity = 0
-	else:
-		gravity += gravity_acc
-		gravity = min(gravity, max_gravity)
+	#if is_on_floor():
+	#	gravity = 0
+	#else:
+	gravity += gravity_acc
+	gravity = min(gravity, max_gravity)
 	velocity += gravity * Vector2.DOWN
 
 func Jump() -> Vector2:
