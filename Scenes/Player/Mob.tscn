@@ -1,12 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7awc2t6y5lh8"]
+[gd_scene load_steps=15 format=3 uid="uid://b7awc2t6y5lh8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Mob.gd" id="1_174si"]
 [ext_resource type="Texture2D" uid="uid://cxqe4h654ipfk" path="res://Assets/Sprites/Robot/robot_idle_0000.png" id="2_2kpqk"]
+[ext_resource type="Texture2D" uid="uid://cu2sipefl1s7c" path="res://Assets/Sprites/Robot/robot_attack_0000.png" id="2_sgjwi"]
+[ext_resource type="Texture2D" uid="uid://8g08ikwhe81a" path="res://Assets/Sprites/Robot/robot_attack_0001.png" id="3_ll0ub"]
 [ext_resource type="Texture2D" uid="uid://b8jeeql24g5in" path="res://Assets/Sprites/Robot/robot_idle_0001.png" id="3_nftxi"]
 [ext_resource type="Script" path="res://Scripts/Player/MobHitbox.gd" id="3_uhox1"]
+[ext_resource type="Texture2D" uid="uid://c7co5o1qq0wu0" path="res://Assets/Sprites/Robot/robot_attack_0002.png" id="4_rkgys"]
+[ext_resource type="Texture2D" uid="uid://bi8ym4jpwf5yr" path="res://Assets/Sprites/Robot/robot_attack_0003.png" id="5_lyov7"]
+[ext_resource type="Texture2D" uid="uid://cmtnl3k0da83t" path="res://Assets/Sprites/Robot/robot_attack_0004.png" id="6_8fudm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d1ac5"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sgjwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ll0ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rkgys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lyov7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8fudm")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2kpqk")
@@ -50,8 +75,8 @@ script = ExtResource("1_174si")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d1ac5")
-animation = &"walk"
-frame_progress = 0.997723
+animation = &"attack"
+frame_progress = 0.174894
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
