@@ -81,9 +81,11 @@ func die():
 	queue_free()
 	emit_signal("is_dead")
 
-func knockback(direction2, power):
-	global_position+= direction2.direction_to(self.global_position) * power
+func knockback(direction2, power, power_down: int):
+	velocity+= direction2.direction_to(self.global_position) * power
+	velocity.y += power_down
+	move_and_slide()
 
 func _on_hurtbox_area_entered(hitbox_area):
 	deal_damage(hitbox_area.damage)
-	knockback(hitbox_area.global_position,20)
+	knockback(hitbox_area.global_position,100, -300)
