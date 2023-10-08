@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	$StartAudio.play()
+
 func _physics_process(_delta):
 	if Input.is_action_pressed("start"):
 		_on_start_button_button_down()
