@@ -1,40 +1,40 @@
 [gd_scene load_steps=22 format=3 uid="uid://dde03f2qbltgu"]
 
-[ext_resource type="Texture2D" uid="uid://bo7aee15obgqi" path="res://Assets/Sprites/bridge1.png" id="1_0jn2u"]
-[ext_resource type="Texture2D" uid="uid://cnswoamqddmse" path="res://Assets/Sprites/bridge2.png" id="2_degus"]
-[ext_resource type="Texture2D" uid="uid://cpgrr2tvqrhcf" path="res://Assets/Sprites/tour_felee.png" id="3_waxb7"]
-[ext_resource type="Texture2D" uid="uid://7kvnm65sstrb" path="res://Assets/Sprites/bridge_under.png" id="4_6jk0k"]
-[ext_resource type="Texture2D" uid="uid://bse5yrtukmtal" path="res://Assets/Sprites/door.png" id="5_tu7d6"]
-[ext_resource type="Texture2D" uid="uid://blsby1ybghu7b" path="res://Assets/Sprites/ground2.png" id="6_myws4"]
-[ext_resource type="Texture2D" uid="uid://b62a76yds288b" path="res://Assets/Sprites/ground3.png" id="7_s4ero"]
-[ext_resource type="Texture2D" uid="uid://c2hvx8wg13vwi" path="res://Assets/Sprites/ground.png" id="8_7ewoa"]
-[ext_resource type="Texture2D" uid="uid://hxnp3nn8b4n2" path="res://Assets/Sprites/house.png" id="9_hvcy1"]
+[ext_resource type="Texture2D" uid="uid://bmrrov2v0st5f" path="res://Assets/Sprites/Scenery/bridge1.png" id="1_1aott"]
+[ext_resource type="Texture2D" uid="uid://beh2yabxwxacw" path="res://Assets/Sprites/Scenery/bridge2.png" id="2_s6oy3"]
+[ext_resource type="Texture2D" uid="uid://bsadd7uy1ovi5" path="res://Assets/Sprites/Scenery/tour_felee.png" id="3_v1c8d"]
+[ext_resource type="Texture2D" uid="uid://ccp6t2hhvuhcf" path="res://Assets/Sprites/Scenery/bridge_under.png" id="4_osek0"]
+[ext_resource type="Texture2D" uid="uid://bvklcdunl1j6" path="res://Assets/Sprites/Scenery/door.png" id="5_tn03g"]
+[ext_resource type="Texture2D" uid="uid://q7adoa1kbqo7" path="res://Assets/Sprites/Scenery/ground2.png" id="6_j2lhn"]
+[ext_resource type="Texture2D" uid="uid://hnoid7s4ny7s" path="res://Assets/Sprites/Scenery/ground3.png" id="7_3wglh"]
+[ext_resource type="Texture2D" uid="uid://dbpmy5qwd5etf" path="res://Assets/Sprites/Scenery/ground.png" id="8_bmh4s"]
+[ext_resource type="Texture2D" uid="uid://bd81kvm8t8p3g" path="res://Assets/Sprites/Scenery/house.png" id="9_1oy7a"]
 [ext_resource type="Texture2D" uid="uid://lvibmxl30x8j" path="res://Assets/Sprites/bg.png" id="10_ac32n"]
 [ext_resource type="Texture2D" uid="uid://ctvfnggt1pjjj" path="res://Assets/Sprites/bg2.png" id="11_qqbxg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rkgd"]
-texture = ExtResource("1_0jn2u")
+texture = ExtResource("1_1aott")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kls6n"]
-texture = ExtResource("2_degus")
+texture = ExtResource("2_s6oy3")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fs2yv"]
-texture = ExtResource("3_waxb7")
+texture = ExtResource("3_v1c8d")
 texture_region_size = Vector2i(100, 225)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrl1l"]
-texture = ExtResource("4_6jk0k")
+texture = ExtResource("4_osek0")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -42,14 +42,14 @@ texture_region_size = Vector2i(20, 20)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3a305"]
-texture = ExtResource("5_tu7d6")
+texture = ExtResource("5_tn03g")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0h4g"]
-texture = ExtResource("6_myws4")
+texture = ExtResource("6_j2lhn")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -57,7 +57,7 @@ texture_region_size = Vector2i(20, 20)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmst7"]
-texture = ExtResource("7_s4ero")
+texture = ExtResource("7_3wglh")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -65,7 +65,7 @@ texture_region_size = Vector2i(20, 20)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hvemo"]
-texture = ExtResource("8_7ewoa")
+texture = ExtResource("8_bmh4s")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -73,7 +73,7 @@ texture_region_size = Vector2i(20, 20)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w55p8"]
-texture = ExtResource("9_hvcy1")
+texture = ExtResource("9_1oy7a")
 texture_region_size = Vector2i(60, 60)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -83,15 +83,15 @@ texture_region_size = Vector2i(60, 60)
 tile_size = Vector2i(20, 20)
 physics_layer_0/collision_layer = 17
 physics_layer_0/collision_mask = 16
-sources/0 = SubResource("TileSetAtlasSource_0rkgd")
-sources/1 = SubResource("TileSetAtlasSource_kls6n")
-sources/2 = SubResource("TileSetAtlasSource_hrl1l")
-sources/4 = SubResource("TileSetAtlasSource_3a305")
-sources/5 = SubResource("TileSetAtlasSource_g0h4g")
-sources/6 = SubResource("TileSetAtlasSource_kmst7")
-sources/7 = SubResource("TileSetAtlasSource_hvemo")
-sources/8 = SubResource("TileSetAtlasSource_w55p8")
 sources/10 = SubResource("TileSetAtlasSource_fs2yv")
+sources/8 = SubResource("TileSetAtlasSource_w55p8")
+sources/7 = SubResource("TileSetAtlasSource_hvemo")
+sources/6 = SubResource("TileSetAtlasSource_kmst7")
+sources/5 = SubResource("TileSetAtlasSource_g0h4g")
+sources/4 = SubResource("TileSetAtlasSource_3a305")
+sources/2 = SubResource("TileSetAtlasSource_hrl1l")
+sources/1 = SubResource("TileSetAtlasSource_kls6n")
+sources/0 = SubResource("TileSetAtlasSource_0rkgd")
 
 [node name="Map" type="TileMap"]
 position = Vector2(40, 80)

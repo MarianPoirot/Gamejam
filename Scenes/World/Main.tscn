@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=6 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
 [ext_resource type="PackedScene" uid="uid://shcip7ewnjxv" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
 [ext_resource type="PackedScene" uid="uid://dde03f2qbltgu" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
+[ext_resource type="PackedScene" uid="uid://bhd7neuh8sa0" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
@@ -21,5 +22,8 @@ position = Vector2(1005, 888)
 [node name="Player" parent="." instance=ExtResource("3_7uux0")]
 position = Vector2(182, 888)
 
+[node name="Gun" parent="." instance=ExtResource("5_3j80q")]
+
 [connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
+[connection signal="gun" from="Player" to="Gun" method="_on_player_gun"]
 [connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]
