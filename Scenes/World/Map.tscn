@@ -1,16 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcivwh5chcaf8"]
+[gd_scene load_steps=22 format=3 uid="uid://bcivwh5chcaf8"]
 
-[ext_resource type="Texture2D" uid="uid://bmrrov2v0st5f" path="res://Assets/Sprites/Scenery/bridge1.png" id="1_1aott"]
-[ext_resource type="Texture2D" uid="uid://beh2yabxwxacw" path="res://Assets/Sprites/Scenery/bridge2.png" id="2_s6oy3"]
-[ext_resource type="Texture2D" uid="uid://bsadd7uy1ovi5" path="res://Assets/Sprites/Scenery/tour_felee.png" id="3_v1c8d"]
-[ext_resource type="Texture2D" uid="uid://ccp6t2hhvuhcf" path="res://Assets/Sprites/Scenery/bridge_under.png" id="4_osek0"]
-[ext_resource type="Texture2D" uid="uid://bvklcdunl1j6" path="res://Assets/Sprites/Scenery/door.png" id="5_tn03g"]
-[ext_resource type="Texture2D" uid="uid://q7adoa1kbqo7" path="res://Assets/Sprites/Scenery/ground2.png" id="6_j2lhn"]
-[ext_resource type="Texture2D" uid="uid://hnoid7s4ny7s" path="res://Assets/Sprites/Scenery/ground3.png" id="7_3wglh"]
-[ext_resource type="Texture2D" uid="uid://dbpmy5qwd5etf" path="res://Assets/Sprites/Scenery/ground.png" id="8_bmh4s"]
-[ext_resource type="Texture2D" uid="uid://bd81kvm8t8p3g" path="res://Assets/Sprites/Scenery/house.png" id="9_1oy7a"]
-[ext_resource type="Texture2D" uid="uid://lvibmxl30x8j" path="res://Assets/Sprites/bg.png" id="10_ac32n"]
-[ext_resource type="Texture2D" uid="uid://ctvfnggt1pjjj" path="res://Assets/Sprites/bg2.png" id="11_qqbxg"]
+[ext_resource type="Texture2D" uid="uid://yn5b3s14emd4" path="res://Assets/Sprites/Scenery/bridge1.png" id="1_1aott"]
+[ext_resource type="Texture2D" uid="uid://cbp02ubpa3bay" path="res://Assets/Sprites/Scenery/bridge2.png" id="2_s6oy3"]
+[ext_resource type="Texture2D" uid="uid://bcuw8vqit762s" path="res://Assets/Sprites/Scenery/tour_felee.png" id="3_v1c8d"]
+[ext_resource type="Texture2D" uid="uid://codp8a1ehwaih" path="res://Assets/Sprites/Scenery/bridge_under.png" id="4_osek0"]
+[ext_resource type="Texture2D" uid="uid://crkrncve1aq0k" path="res://Assets/Sprites/Scenery/door.png" id="5_tn03g"]
+[ext_resource type="Texture2D" uid="uid://defwj10adn8iy" path="res://Assets/Sprites/Scenery/ground2.png" id="6_j2lhn"]
+[ext_resource type="Texture2D" uid="uid://gyxtx6us2xbs" path="res://Assets/Sprites/Scenery/ground3.png" id="7_3wglh"]
+[ext_resource type="Texture2D" uid="uid://cuti5k5cr4mm4" path="res://Assets/Sprites/Scenery/ground.png" id="8_bmh4s"]
+[ext_resource type="Texture2D" uid="uid://brsrrgrqpspwd" path="res://Assets/Sprites/Scenery/house.png" id="9_1oy7a"]
+[ext_resource type="Texture2D" uid="uid://8n213fnhpeeq" path="res://Assets/Sprites/Scenery/bg.png" id="10_esq2q"]
+[ext_resource type="Texture2D" uid="uid://c8bn7dkv0w62h" path="res://Assets/Sprites/Scenery/bg2.png" id="11_fglsb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rkgd"]
 texture = ExtResource("1_1aott")
@@ -117,17 +117,17 @@ layer_2/tile_data = PackedInt32Array()
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(800, 1)
+motion_scale = Vector2(0.02, 0)
+motion_mirroring = Vector2(400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(2, 2)
+texture = ExtResource("10_esq2q")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0)
-motion_mirroring = Vector2(800, 0)
+motion_scale = Vector2(0.1, 0.02)
+motion_mirroring = Vector2(400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2(2, 2)
+texture = ExtResource("11_fglsb")
 centered = false
