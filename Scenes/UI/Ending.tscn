@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cecse2dibg87g"]
+[gd_scene load_steps=5 format=3 uid="uid://cecse2dibg87g"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Ending.gd" id="1_hxryl"]
 [ext_resource type="FontFile" uid="uid://bmwimpog4uwfm" path="res://Assets/Fonts/HopeGold.ttf" id="2_0k5a2"]
+[ext_resource type="Texture2D" uid="uid://bq23qt60of6xn" path="res://Assets/Sprites/ending_improved.png" id="3_01snh"]
 [ext_resource type="AudioStream" uid="uid://bw6hjkydhs6gn" path="res://Assets/Sons/Moi c JMLP.ogg" id="3_236ow"]
 
 [node name="Ending" type="CanvasLayer"]
 script = ExtResource("1_hxryl")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(800, 430)
+scale = Vector2(16, 16)
+texture = ExtResource("3_01snh")
 
 [node name="GameOver" type="Label" parent="."]
 anchors_preset = 8
@@ -13,16 +19,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -381.5
-offset_top = -285.0
-offset_right = 381.5
-offset_bottom = -107.0
+offset_left = -858.0
+offset_top = -351.0
+offset_right = 858.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.93875)
 theme_override_fonts/font = ExtResource("2_0k5a2")
-theme_override_font_sizes/font_size = 192
-text = "GAME_OVER"
+theme_override_font_sizes/font_size = 128
+text = "Vous n'avez pas survécu
+à la rouille ..."
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="."]
@@ -31,12 +38,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -317.0
-offset_top = 67.0
-offset_right = 317.0
-offset_bottom = 163.0
+offset_left = -762.0
+offset_top = 339.0
+offset_right = -128.0
+offset_bottom = 435.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_0k5a2")
 theme_override_font_sizes/font_size = 96
 text = "KEY_RESTART"
@@ -47,12 +56,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -317.0
-offset_top = 204.0
-offset_right = 317.0
-offset_bottom = 300.0
+offset_left = 117.0
+offset_top = 344.0
+offset_right = 751.0
+offset_bottom = 440.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("2_0k5a2")
 theme_override_font_sizes/font_size = 92
 text = "KEY_QUIT"
@@ -73,8 +83,6 @@ theme_override_fonts/font = ExtResource("2_0k5a2")
 theme_override_font_sizes/font_size = 96
 text = "Score: 0"
 horizontal_alignment = 1
-
-[node name="Background" type="Sprite2D" parent="."]
 
 [node name="EndAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_236ow")
