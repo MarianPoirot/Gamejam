@@ -37,7 +37,7 @@ func _ready():
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",true)
 
 func _process(delta):
-	$Camera2D/PlayerUI.updateRustyBar(health)
+	$Camera2D/PlayerUI.updateRustyBar(1000-health)
 	var input =  Input.get_axis("Move_Left", "Move_Right")
 	var movement = input * Vector2.RIGHT
 	if input != 0 :

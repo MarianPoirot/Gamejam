@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=8 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
-[ext_resource type="PackedScene" uid="uid://shcip7ewnjxv" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
-[ext_resource type="PackedScene" uid="uid://dde03f2qbltgu" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
+[ext_resource type="PackedScene" uid="uid://b6o25k8v7mmne" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
+[ext_resource type="PackedScene" uid="uid://bcivwh5chcaf8" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
+[ext_resource type="Script" path="res://Scripts/World/Teleport.gd" id="5_47w3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc6uu"]
+size = Vector2(16.25, 18.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ymc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
@@ -19,7 +25,30 @@ layer_2/tile_data = PackedInt32Array(-9, 8, 0, -327650, 10, 0, 786401, 4, 0, 458
 position = Vector2(1005, 888)
 
 [node name="Player" parent="." instance=ExtResource("3_7uux0")]
-position = Vector2(182, 888)
+position = Vector2(414, 885)
+speed_acc = 2.0
+max_speed = 10.0
+max_jump = 62.0
 
-[connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
-[connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]
+[node name="ZoneBasse" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
+position = Vector2(144, 888)
+script = ExtResource("5_47w3s")
+player = NodePath("../Player")
+destination = NodePath("../ZoneHaute")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneBasse"]
+shape = SubResource("RectangleShape2D_mc6uu")
+
+[node name="ZoneHaute" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
+position = Vector2(584, 648)
+script = ExtResource("5_47w3s")
+player = NodePath("../Player")
+destination = NodePath("../ZoneBasse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneHaute"]
+shape = SubResource("RectangleShape2D_t3ymc")
+
+[connection signal="body_entered" from="ZoneBasse" to="ZoneBasse" method="_on_body_entered"]
+[connection signal="body_exited" from="ZoneBasse" to="ZoneBasse" method="_on_body_exited"]
+[connection signal="body_entered" from="ZoneHaute" to="ZoneHaute" method="_on_body_entered"]
+[connection signal="body_exited" from="ZoneHaute" to="ZoneHaute" method="_on_body_exited"]
