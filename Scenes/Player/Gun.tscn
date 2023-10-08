@@ -11,6 +11,11 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3yays"]
 animations = [{
+"frames": [],
+"loop": false,
+"name": &"blank",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_4d7q6")
@@ -42,13 +47,17 @@ animations = [{
 size = Vector2(40, 13)
 
 [node name="Gun" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+monitoring = false
 script = ExtResource("1_pmkl3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3yays")
-frame = 6
-frame_progress = 1.0
+animation = &"blank"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_esvuj")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
