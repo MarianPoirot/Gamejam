@@ -1,16 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=8 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
 [ext_resource type="PackedScene" uid="uid://b6o25k8v7mmne" path="res://Scenes/Player/Player.tscn" id="3_7uux0"]
 [ext_resource type="PackedScene" uid="uid://bcivwh5chcaf8" path="res://Scenes/World/Map.tscn" id="4_2rc7t"]
-[ext_resource type="PackedScene" uid="uid://bhd7neuh8sa0" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
+[ext_resource type="PackedScene" path="res://Scenes/Player/Gun.tscn" id="5_3j80q"]
 [ext_resource type="Script" path="res://Scripts/World/Teleport.gd" id="5_47w3s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc6uu"]
-size = Vector2(16.25, 18.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ymc"]
+size = Vector2(20, 24)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
@@ -24,9 +22,6 @@ layer_2/tile_data = PackedInt32Array(-1703961, 10, 0, -1769454, 10, 0, -1703870,
 
 [node name="Mob" parent="." instance=ExtResource("2_aiuup")]
 position = Vector2(767, 187)
-max_speed = 18.0
-gravity_acc = 12.0
-max_gravity = 9.0
 
 [node name="Player" parent="." instance=ExtResource("3_7uux0")]
 position = Vector2(0, 207)
@@ -35,52 +30,30 @@ max_gravity = 9.0
 jump_acc = 2.0
 max_jump = 20.0
 
-[node name="ZoneBasse" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
-position = Vector2(2464, 227)
-script = ExtResource("5_47w3s")
-player = NodePath("../Player")
-destination = NodePath("../ZoneHaute")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneBasse"]
-shape = SubResource("RectangleShape2D_mc6uu")
-
 [node name="ZoneHaute" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
 position = Vector2(2463, 207)
 script = ExtResource("5_47w3s")
 player = NodePath("../Player")
-destination = NodePath("../ZoneBasse")
+destination = NodePath("../ZoneHaute2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneHaute"]
 shape = SubResource("RectangleShape2D_t3ymc")
-
-[node name="ZoneBasse2" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
-position = Vector2(3765, 228)
-script = ExtResource("5_47w3s")
-player = NodePath("../Player")
-destination = NodePath("../ZoneHaute")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneBasse2"]
-shape = SubResource("RectangleShape2D_mc6uu")
 
 [node name="ZoneHaute2" type="Area2D" parent="." node_paths=PackedStringArray("player", "destination")]
 position = Vector2(3764, 208)
 script = ExtResource("5_47w3s")
 player = NodePath("../Player")
-destination = NodePath("../ZoneBasse")
+destination = NodePath("../ZoneHaute")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneHaute2"]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_t3ymc")
 
 [node name="Gun" parent="." instance=ExtResource("5_3j80q")]
 
-[connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
 [connection signal="gun" from="Player" to="Gun" method="_on_player_gun"]
 [connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]
-[connection signal="body_entered" from="ZoneBasse" to="ZoneBasse" method="_on_body_entered"]
-[connection signal="body_exited" from="ZoneBasse" to="ZoneBasse" method="_on_body_exited"]
 [connection signal="body_entered" from="ZoneHaute" to="ZoneHaute" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneHaute" to="ZoneHaute" method="_on_body_exited"]
-[connection signal="body_entered" from="ZoneBasse2" to="ZoneBasse2" method="_on_body_entered"]
-[connection signal="body_exited" from="ZoneBasse2" to="ZoneBasse2" method="_on_body_exited"]
 [connection signal="body_entered" from="ZoneHaute2" to="ZoneHaute2" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneHaute2" to="ZoneHaute2" method="_on_body_exited"]
