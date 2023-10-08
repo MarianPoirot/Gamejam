@@ -71,6 +71,8 @@ func _process(delta):
 		self.attack1()
 	elif Input.is_action_just_pressed("attack2") && not attack:
 		self.attack2()
+	elif Input.is_action_just_pressed("attackGun") && not attack:
+		self.attackGun()
 		
 	AddGravity()
 	velocity *= delta * SPEED_RATE
@@ -135,10 +137,17 @@ func _on_animated_sprite_2d_animation_finished():
 
 func attack1():
 	attack=true
+	health-=10
 	$HitboxAttack1/CollisionHitboxAttack1.set_deferred("disabled",false)
 	$AnimatedSprite2D.play("attack1")
 	
 func attack2():
 	attack=true
+	health-=15
 	$HitboxAttack2/CollisionHitboxAttack2.set_deferred("disabled",false)
 	$AnimatedSprite2D.play("attack2")
+
+func attackGun():
+	attack=true
+	health-=20
+	$AnimatedSprite2D.play("gun")
