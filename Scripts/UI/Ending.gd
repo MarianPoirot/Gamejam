@@ -1,5 +1,7 @@
 extends Node
 
+func _ready():
+	update_score(Variables.score)
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("start"):

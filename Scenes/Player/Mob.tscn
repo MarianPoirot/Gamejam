@@ -68,7 +68,7 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckmpu"]
 size = Vector2(250, 118)
 
-[node name="Mob" type="CharacterBody2D"]
+[node name="Mob" type="CharacterBody2D" groups=["Mob"]]
 collision_layer = 8
 collision_mask = 25
 script = ExtResource("1_174si")

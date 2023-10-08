@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://duvo1vpoywvme"]
+[gd_scene load_steps=10 format=3 uid="uid://duvo1vpoywvme"]
 
 [ext_resource type="Script" path="res://Scripts/World/Main.gd" id="1_ckjmg"]
 [ext_resource type="PackedScene" uid="uid://b7awc2t6y5lh8" path="res://Scenes/Player/Mob.tscn" id="2_aiuup"]
@@ -11,8 +11,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ymc"]
 size = Vector2(20, 24)
 
+[sub_resource type="Curve2D" id="Curve2D_kylbl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -320, 64, 0, 0, 0, 0, 3712, 64, 0, 0, 0, 0, 3712, 128, 0, 0, 0, 0, -320, 128, 0, 0, 0, 0, -320, 64)
+}
+point_count = 5
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ckjmg")
+mob_scene = ExtResource("2_aiuup")
 
 [node name="Map" parent="." instance=ExtResource("4_2rc7t")]
 position = Vector2(754, 657)
@@ -56,9 +63,21 @@ shape = SubResource("RectangleShape2D_t3ymc")
 stream = ExtResource("7_0iy6a")
 volume_db = 3.0
 
+[node name="MobSpawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kylbl")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-320, 64)
+
+[connection signal="is_dead" from="Mob" to="." method="_on_mob_is_dead"]
 [connection signal="gun" from="Player" to="Gun" method="_on_player_gun"]
 [connection signal="is_dead" from="Player" to="." method="_on_player_is_dead"]
 [connection signal="body_entered" from="ZoneHaute" to="ZoneHaute" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneHaute" to="ZoneHaute" method="_on_body_exited"]
 [connection signal="body_entered" from="ZoneHaute2" to="ZoneHaute2" method="_on_body_entered"]
 [connection signal="body_exited" from="ZoneHaute2" to="ZoneHaute2" method="_on_body_exited"]
+[connection signal="timeout" from="MobSpawn" to="." method="_on_mob_spawn_timeout"]
